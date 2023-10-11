@@ -31,6 +31,9 @@ jobs:
         username: ${{ env.SSH_USERNAME }}
         key: ${{ env.SSH_PRIVATE_KEY }}
         script: |
+          cd /home/ubuntu/app/backend
+          nvm use default
+          yarn -v
           yarn install
           yarn build:ts
           pm2 restart app-backend
